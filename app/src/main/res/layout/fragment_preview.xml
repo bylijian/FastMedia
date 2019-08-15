@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".fragment.CameraPreviewFragment">
+
+    <!-- 预览视图 -->
+    <com.bylijian.fastmedia.widget.AspectFrameLayout
+        android:id="@+id/layout_aspect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <com.bylijian.cameralibrary.webrtc.SurfaceViewRenderer
+            android:id="@+id/surfaceviewrender"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.bylijian.fastmedia.widget.FocusView
+            android:id="@+id/focusview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/video_focus"
+            android:visibility="invisible" />
+
+    </com.bylijian.fastmedia.widget.AspectFrameLayout>
+
+    <!-- 顶部视图 -->
+    <RelativeLayout
+        android:id="@+id/layout_preview_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="horizontal">
+
+        <!-- 关闭按钮 -->
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:padding="6dp"
+            android:src="@drawable/ic_camera_preview_close" />
+
+    </RelativeLayout>
+
+    <!-- 右上角视图 -->
+    <include layout="@layout/view_preview_right_top" />
+
+    <!-- 滤镜/贴纸等页面 -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:clickable="true"></FrameLayout>
+
+    <!-- 底部按钮 -->
+    <include layout="@layout/view_preview_bottom" />
+
+    <!-- fps 提示 -->
+    <TextView
+        android:id="@+id/tv_fps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/yellow" />
+
+
+</FrameLayout>
